@@ -45,7 +45,7 @@
         <!-- Sidebar Start -->
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-light navbar-light">
-                <a href="{{route('index')}}" class="navbar-brand mx-4 mb-3">
+                <a href="#" class="navbar-brand mx-4 mb-3">
                     <h10 class="text-primary"><i class="bi bi-shield-fill-check"></i>ADMIN CONSULTORIO</h10>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
@@ -58,8 +58,12 @@
                         <span>ADMINISTRADOR</span>
                     </div>
                 </div>
+                <div class="ms-5">
+                    <h6><a href="{{ route('login.destroy') }}">Cerrar Sesion</a></h6>
+                </div>
             </nav>
         </div>
+    
         <!-- Sidebar End -->
 
 

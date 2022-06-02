@@ -8,10 +8,9 @@
 											<h2><b>SMILE'S</b></h2>
 										</header>
 										<p><b>Somos tu mejor opcion para el cuidado de tu sonrisa</b></p>
-										<span class="logo"><img src="images/inicio.png" alt="" /></span>
+										<img src="images/inicio.png" class="img-fluid" alt="...">
                                         </center>
 									</div>
-									
 								</div>
 							</section>
                             <!-- First Section -->
@@ -48,10 +47,8 @@
 											</tr>
 										</li>
 									</table>
-									
 								</ul>
 							</section>
-
 						<!-- Second Section -->
 							<section id="second" class="main special">
 								<header class="major">
@@ -59,31 +56,51 @@
 										<tr>
 											<center><h2>Especialidades</h2></center>
 										</tr>
-										<tr>
-											<th><h3>CIRUGIA MAXILOFACIAL</h3></th>
-											<td><span class="logo"><img src="images/maxilofacial_opt_opt.png" alt="" /></span></td>
-										</tr>
-										<tr>
-											<th><h3>ODONTOPEDIATRA</h3></th>
-											<td><span class="logo"><img src="images/ondontopediatria_opt.png" alt="" /></span></td>
-										</tr>
-										<tr>
-											<th><h3>ENDODONCIA</h3></th>
-											<td><span class="logo"><img src="images/endodoncia1.png" alt="" /></span></td>
-										</tr>
-										<tr>
-											<th><h3>ORTODONCIA</h3></th>
-											<td><span class="logo"><img src="images/ortodoncia.png" alt="" /></span></td>
-										</tr>
-										<tr>
-											<th><h3>ESTETICA</h3></th>
-											<td><span class="logo"><img src="images/estetica.png" alt="" /></span></td>
-										</tr>
-									</table>
+										<div class="row row-cols-1 row-cols-md-3 g-4">
+										<div class="col">
+											<div class="card">
+											<img src="images/maxilofacial_opt_opt.png"  class="card" style="height:200px;">
+											<div class="card-body">
+												<h5 class="card-title">CIRUGIA MAXILOFACIAL</h5>
+											</div>
+											</div>
+										</div>
+										<div class="col">
+											<div class="card">
+											<img src="images/ondontopediatria_opt.png" class="card" style="height:200px;">
+											<div class="card-body">
+												<h5 class="card-title">ODONTOPEDIATRA</h5>
+											</div>
+											</div>
+										</div>
+										<div class="col">
+											<div class="card">
+											<img src="images/endodoncia1.png" class="card" style="height:200px;">
+											<div class="card-body">
+												<h5 class="card-title">ENDODONCIA</h5>
+											</div>
+											</div>
+										</div>
+										<div class="col">
+											<div class="card">
+											<img src="images/ortodoncia.png" class="card" style="height:200px;">
+											<div class="card-body">
+												<h5 class="card-title">ORTODONCIA</h5>
+											</div>
+											</div>
+										</div>
+										<div class="col">
+											<div class="card">
+											<img src="images/estetica.png" class="card" style="height:200px;">
+											<div class="card-body">
+												<h5 class="card-title">ESTETICA</h5>
+											</div>
+											</div>
+										</div>
+										</div>
 								</header>
 							</section>
 							<br>
-							
 						<!-- Get Started -->
 							<section id="cta" class="main special">
 								<header class="major">

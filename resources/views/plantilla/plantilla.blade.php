@@ -20,13 +20,9 @@
 		<!-- Wrapper -->
 			<div id="wrapper">
 				@if(auth()->check())
-					<li>
-						<p>Bienvenido<b> <br>{{ auth()->user()->name}}</b></p>
-					</li>
-					<li>
-						<a href="{{ route('login.destroy') }}">Cerrar Sesion</a>
-					</li>
-				@else
+					<b><li><a>Bienvenido</a></b><br>{{ auth()->user()->name}}</li>
+					<li><a href="{{ route('login.destroy') }}"><b>Cerrar Sesion</a></li></b>
+					@else
 					
 					<td colspan="2">
 						<a class="btn btn-primary" href="{{ route('login.create') }}" >
@@ -77,27 +73,26 @@
 									<center><td><b>10:00 am - 15:00 pm</b></td></center>
 								</tr>
 							</table>
-						</section>
-						<section>
+						
 							<table>
-									<h2><b>INFORMACION DE CONSULTORIO</b></h2>
-								<dl class="alt">
+								<tr>
+								<h2>INFORMACION DE CONSULTORIO</h2>
+								</tr>
 									<tr>
-										<td><dt><b>Direccion</b></dt></td>
-										<td><dd><b>Antonio Albarran #315 Col. Lazaro Cardenas, Toluca EDOMEX.</b></dd></td>
+									<center><td><b>Direccion</b></td></center>
+									<center><td><b>Antonio Albarran #315 Col. Lazaro Cardenas, Toluca EDOMEX.</b></td></center>
 									</tr>
 									<tr>
-										<td><dt><b>Telefono</dt></td>
-										<td><dd><b>725488585</b></dd></td>
+									<center><td><b>Telefono</b></td></center>
+									<center><td><b>725488585</b></td></center>
 									</tr>
 									<tr>
-										<td><dt><b>Email</dt></td>
-										<td><dd><b>MALENY@GMAIL.COM</b></dd></td>
+									<center><td><b>Email</d></td></center>
+									<center><td><b>MALENY@GMAIL.COM</b></td></center>
 									</tr>
-								</dl>
 							</table>
 							<ul class="icons">
-								<li><a href="https://www.facebook.com/profile.php?id=100069244024982" class="icon brands fa-facebook-f alt"><span class="label">Facebook</span></a></li>
+								<li><a href="#" class="icon brands fa-facebook-f alt"><span class="label">Facebook</span></a></li>
 								<li><a href="#" class="icon brands fa-instagram alt"><span class="label">Instagram</span></a></li>
 							</ul>
 						</section>
