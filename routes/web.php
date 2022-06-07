@@ -5,6 +5,7 @@ use App\Http\Controllers\consultorio;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\CartController;
 
 Route::name('index')->get('/', function () {
     return view('welcome1');
@@ -98,6 +99,14 @@ Route::name('salvar3')->put('salvar3/{id}',[consultorio::class,'salvar3']);
 Route::name('borrar3')->get('borrar3/{id}',[consultorio::class,'borrar3']);
 Route::name('altaespecialidad')->get('/altaespecialidad',[consultorio::class,'altaespecialidad']);
 Route::name('salvarespecialidad')->post('/salvarespecialidad',[consultorio::class,'salvarespecialidad']);
+//---------CARRITO--------------------
+
+Route::get('/shop', [CartController::class, 'shop'])->name('shop');
+Route::get('/cart', [CartController::class, 'cart'])->name('cart.index');
+Route::post('/add', [CartController::class, 'add'])->name('cart.store');
+Route::post('/update', [CartController::class, 'update'])->name('cart.update');
+Route::post('/remove', [CartController::class, 'remove'])->name('cart.remove');
+Route::post('/clear', [CartController::class, 'clear'])->name('cart.clear');
 
 
 

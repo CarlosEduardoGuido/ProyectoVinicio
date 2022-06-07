@@ -16,5 +16,6 @@ class Citas extends Model
         'usuario',
         'asunto',
         'id_doctor',
+        'updated_at',
     ];
 }

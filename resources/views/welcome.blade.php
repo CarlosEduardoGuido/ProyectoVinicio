@@ -46,6 +46,7 @@
                         <table class="table text-center align-middle table-bordered table-hover mb-0">
                             <thead>
                                 <tr class="table-info">
+                                    <th scope="col">FECHA DE REGISTRO</th>
                                     <th scope="col">HORA DE CITA</th>
                                     <th scope="col">CITA</th>
                                     <th scope="col">NOMBRE DEL PACIENTE</th>
@@ -57,6 +58,7 @@
                             <tbody>
                                 @foreach($citas as $cita)
                                 <tr>
+                                    <td class="table-primary">{{$cita->updated_at}}</td>
                                     <td class="table-primary">{{$cita->hora_cita}}</td>
                                     <td class="table-primary">{{$cita->cita}}</td>
                                     @foreach($usuarios as $usuario)

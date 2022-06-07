@@ -13,8 +13,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('tb_especialidades')->insert([
+       /** DB::table('tb_especialidades')->insert([
             'especiliadad'       => 'Maxilofacial',
-        ]);
+        ]); 
+        */
+        $this->call(ProductsTableSeeder::class);
     }
 }
