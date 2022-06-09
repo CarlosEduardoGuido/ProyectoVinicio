@@ -6,6 +6,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\Administrador;
 
 Route::name('index')->get('/', function () {
     return view('welcome1');
@@ -14,6 +15,11 @@ Route::name('index')->get('/', function () {
 //----------VISTA ADMINISTRADOR---------
 Route::name('admin')->get('admin/',[consultorio::class,'admin']);
 Route::name('agendarCita')->get('agendarCita/',[consultorio::class,'agendarCita']);
+Route::name('usuarios')->get('usuarios/',[Administrador::class,'usuarios']);
+Route::name('citas')->get('citas/',[Administrador::class,'citas']);
+Route::name('doctores')->get('doctores/',[Administrador::class,'doctores']);
+Route::name('especialidades')->get('especialidades/',[Administrador::class,'especialidades']);
+Route::name('historial')->get('historial/',[Administrador::class,'historial']);
 
 //--------DETALLE USUARIO----------------
 Route::name('detalle')->get('detalle/{id}',[consultorio::class,'detalle']);
