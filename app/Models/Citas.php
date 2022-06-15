@@ -13,7 +13,7 @@ class Citas extends Model
     protected $fillable =[
         'hora_cita',
         'cita',
-        'usuario',
+        'id_usuario',
         'asunto',
         'id_doctor',
         'updated_at',

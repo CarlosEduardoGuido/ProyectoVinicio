@@ -16,7 +16,7 @@
                                     <th scope="col">NOMBRE DEL PACIENTE</th>
                                     <th scope="col">ASUNTO</th>
                                     <th scope="col">DOCTOR</th>
-                                    <th scope="col" colspan=3>ACCIONES</th>
+                                    <th scope="col" colspan=4>ACCIONES</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -28,14 +28,15 @@
                                     @foreach($usuarios as $usuario)
                                         @if($cita->id_usuario == $usuario->id)
                                             <td class="table-primary">{{$usuario->name}}</td>
-                                        @endif    
+                                        @endif
                                     @endforeach    
                                     <td class="table-primary">{{$cita->asunto}}</td>
                                     @foreach($doctores as $doctor)
                                         @if($cita->id_doctor == $doctor->id)
                                             <td class="table-primary">{{$doctor->nombre}}</td>
                                         @endif
-                                    @endforeach        
+                                    @endforeach     
+                                    <td class="table-primary"><a button type="button" class="btn btn-success btn-sm" href="{{route('crearhistorial',['id'=>$cita->id])}}">HISTORIAL</button></a></td>   
                                     <td class="table-primary"><a button type="button" class="btn btn-info btn-sm" href="{{route('detalle1',['id'=>$cita->id])}}">DETALLE</button></a></td>
                                     <td class="table-primary"><a button type="button" class="btn btn-warning btn-sm" href="{{route('editar1',['id'=>$cita->id])}}">EDITAR</button></a></td>
                                     <td class="table-primary"><a button type="button" class="btn btn-danger btn-sm" href="{{route('borrar1',['id'=>$cita->id])}}">ELIMINAR</button></a></td>

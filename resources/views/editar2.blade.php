@@ -26,12 +26,12 @@
                                 </select>
                             </div>
                                 <button type="submit" class="btn btn-primary">GUARDAR</button>
+                                <br>
                             </form>
+                            <br>
+                            <a href="{{route('doctores')}}"><button class="btn btn-primary">REGRESAR</button></a><br>
                         </div>
                     </div>
-                <a href="{{route('admin')}}">
-                    <button class="btn btn-primary">Regresar</button>
-                </a><br>
     </center>
 </body>
 </html>

@@ -7,6 +7,7 @@ use App\Models\Citas;
 use App\Models\Doctores;
 use App\Models\User;
 use App\Models\Especialidades;
+use App\Models\Historial;
 use Illuminate\Support\Facades\DB;
 
 class Administrador extends Controller{
@@ -38,7 +39,76 @@ class Administrador extends Controller{
     }
 
     public function historial () {
-        return view ('historial');
+        $historiales = Historial::all();
+        $usuarios = User::all();
+        $citas = Citas::all();
+        $doctores = Doctores::all();
+        return view ('historial')->with(['usuarios'=>$usuarios])
+                                 ->with(['citas'=>$citas])
+                                 ->with(['doctores'=>$doctores])
+                                 ->with(['historiales'=>$historiales]);
     }
+
+    public function crearhistorial(Citas $id){
+        $usuarios=User::all();
+        $doctores=Doctores::all();  
+        return view("crearhistorial")
+          ->with(['cita'=>$id])
+          ->with(['usuarios' => $usuarios])
+          ->with(['doctores' => $doctores]);
+    }
+
+    public function salvarhistorial(Citas $id , Request $request){
+        $al = Historial::create(array(
+            'id_cita'=>$request->input('id_cita'),
+            'descripcion'=>$request->input('descripcion'), 
+            'prescripciones'=>$request->input('prescripciones'), 
+            'observaciones'=>$request->input('observaciones'), 
+            'receta'=>$request->input('receta'),
+            'condicion'=>$request->input('condicion'),
+             ));
+           return redirect()->route('admin');
+    }
+
+    public function historialusr(){
+        $id_usuario= auth()->user()->id;
+        $doctores = Doctores::all();
+        $citas = Citas::all()->where('id_usuario',$id_usuario);
+        $historiales = Historial::all();
+        return view('historialusr')
+            ->with(['citas'=> $citas])
+            ->with(['doctores'=> $doctores])
+            ->with(['historiales'=> $historiales]);
+    }
+
+    public function detallehistorial($id){
+        $historial = Historial::find($id);
+        return view('detallehistorial')
+            ->with(['historial'=>$historial]);
+    }
+
+    public function borrarhistorial(Historial $id){
+        $id->delete();
+        return redirect()->route('historial');
+    }
+
+    public function editarhistorial(Historial $id){
+        $historial= Historial::find($id->id);
+        return view('editarhistorial')
+                ->with(['historial'=> $historial]);
+    }
+    
+    public function guardarhistorial(Historial $id, Request $request){
+        $query = Historial::find($id->id);
+        $query->id_cita = $request->id_cita;
+        $query->descripcion = $request->descripcion;
+        $query->prescripciones = $request->prescripciones;
+        $query->observaciones = $request->observaciones;
+        $query->receta = $request->receta;
+        $query->condicion = $request->condicion;
+        $query->save();
+        return redirect()->route("detallehistorial",['id'=>$id->id]);
+    }
+
 
 }
