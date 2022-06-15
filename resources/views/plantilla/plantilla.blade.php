@@ -47,6 +47,7 @@
 							<li><a href="#first">Quienes Somos</a></li>
 							<li><a href="#second">Especialidades</a></li>
 							<li><a href="#cta">Agendar Cita</a></li>
+							<li><a href="#cta">Contactanos</a></li>
 							<li><a href="{{ url('shop') }}">Tienda</a></li>
 						</ul>
 					</nav>

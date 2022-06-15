@@ -8,6 +8,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\Administrador;
 
+use App\Http\Controllers\MailController;
+
 Route::name('index')->get('/', function () {
     return view('welcome1');
 })->middleware('auth');
@@ -114,6 +116,14 @@ Route::post('/update', [CartController::class, 'update'])->name('cart.update');
 Route::post('/remove', [CartController::class, 'remove'])->name('cart.remove');
 Route::post('/clear', [CartController::class, 'clear'])->name('cart.clear');
 
+
+
+////// Correo////
+Route::get('/', function () {
+    return view('welcome');
+});
+Route::get('/enviar-form', [MailController::class, 'formEmail'])->name('enviar-form');
+Route::get('/enviar-emial', [MailController::class, 'sendEmail'])->name('enviar-emial');
 
 
 

@@ -108,8 +108,48 @@
 									<a button type="button" class="btn btn-outline-info" href="{{route('agendarCita')}}">AGENDAR CITA</button></a>
 									
 								</header>
+
+<header>
+	<form action="{{ route('enviar-emial') }}" method="GET">
+		{{ csrf_field() }}
+		<table class="default">
+		<h2>Contactanos</h2>
+	
+			<tr>
+				<th>Nombre:</th>
+				<td>
+					<input type="text" name="nombre">
+				</td>
+			</tr>
+			<tr>
+				<th>E-mail:</th>
+				<td>
+					<input type="text" name="email">
+				</td>
+			</tr>
+			<tr>
+				<th>Asunto:</th>
+				<td>
+					<input type="text" name="asunto">
+				</td>
+			</tr>
+			<tr>
+				<th>Escribe el mensaje:</th>
+				<td>
+					<textarea name="mensaje"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+				<center> <input type="submit" value="Enviar"></center>
+				</td>
+			</tr>
+	
+</header>
 							</section>
-					</div>
+					</div>	</table>
+					
+		</form>
 
 
 @endsection
