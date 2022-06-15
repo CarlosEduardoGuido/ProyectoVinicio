@@ -30,6 +30,8 @@ if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php'))
 | into the script here so we don't need to manually load our classes.
 |
 */
+/*DESCOMENTAR Y BORRAR LINEA 36
+require __DIR__.'/../../pruebaconsultorio/vendor/autoload.php';*/
 
 require __DIR__.'/../vendor/autoload.php';
 
@@ -43,7 +45,9 @@ require __DIR__.'/../vendor/autoload.php';
 | to this client's browser, allowing them to enjoy our application.
 |
 */
-
+/*DESCOMENTAR Y BORRAR LINEA 50
+$app = require_once __DIR__.'/../../pruebaconsultorio/bootstrap/app.php';
+*/
 $app = require_once __DIR__.'/../bootstrap/app.php';
 
 $kernel = $app->make(Kernel::class);
