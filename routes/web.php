@@ -119,11 +119,13 @@ Route::post('/clear', [CartController::class, 'clear'])->name('cart.clear');
 
 
 ////// Correo////
-Route::get('/', function () {
-    return view('welcome');
-});
+
 Route::get('/enviar-form', [MailController::class, 'formEmail'])->name('enviar-form');
 Route::get('/enviar-emial', [MailController::class, 'sendEmail'])->name('enviar-emial');
+
+///excel///
+Route::get('/excel', 'App\Http\Controllers\Administrador@export')->name('excel');
+
 
 
 

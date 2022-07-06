@@ -8,6 +8,9 @@ use App\Models\Doctores;
 use App\Models\User;
 use App\Models\Especialidades;
 use Illuminate\Support\Facades\DB;
+use App\Exports\CitasExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class Administrador extends Controller{
     
@@ -40,5 +43,9 @@ class Administrador extends Controller{
     public function historial () {
         return view ('historial');
     }
+    public function export(Request $req){
+        return Excel::download(new CitasExport ,'citas.xlsx');
+        }
+        
 
 }

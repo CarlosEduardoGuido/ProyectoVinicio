@@ -4,7 +4,12 @@
                 <div class="bg-light text-center rounded p-4">
                     <div class="d-flex align-items-center justify-content-between mb-4">
                         <h4 class="mb-0">INFORMACION DE CITAS</h4>
+                         <a button type="button" class="btn btn-success btn-sm" href="{{ route('excel')}}">EXCEL</button></a>
+
+
                         <a button type="button" class="btn btn-success btn-sm" href="{{route('altacitas')}}">AGREGAR CITA</button></a>
+                   
+                    
                     </div>
                     <div class="table-responsive">
                         <table class="table text-center align-middle table-bordered table-hover mb-0">
