@@ -9,14 +9,16 @@ use App\Models\Doctores;
 use App\Models\User;
 use App\Models\Especialidades;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class consultorio extends Controller
 {
   public function agendarCita(){
-
+    $id_usuario = auth()->user()->id;
     $doctores = Doctores::all();
     return view('consultas')
-    ->with(['doctores' => $doctores]);
+    ->with(['doctores' => $doctores])
+    ->with(['id_usuario' => $id_usuario]);
   }
     public function admin () {
             $usuarios = User::all();
@@ -212,7 +214,7 @@ public function agendarc(Request $request ){
     $cita  = Citas::create(array(
       'hora_cita' => $request->input('hora_cita'),
       'cita' => $request->input('cita'),
-      'usuario' => $request->input('id_usuario'),
+      'id_usuario' => Auth::user()->id,
       'asunto' => $request->input('asunto'),
       'id_doctor' => $request->input('id_doctor'),
     ));

@@ -7,7 +7,6 @@ use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\Administrador;
-
 use App\Http\Controllers\MailController;
 
 Route::name('index')->get('/', function () {
@@ -22,6 +21,15 @@ Route::name('citas')->get('citas/',[Administrador::class,'citas']);
 Route::name('doctores')->get('doctores/',[Administrador::class,'doctores']);
 Route::name('especialidades')->get('especialidades/',[Administrador::class,'especialidades']);
 Route::name('historial')->get('historial/',[Administrador::class,'historial']);
+Route::name('crearhistorial')->get('crearhistorial/{id}',[Administrador::class,'crearhistorial']);
+Route::name('salvarhistorial')->post('salvarhistorial/',[Administrador::class,'salvarhistorial']);
+Route::name('detallehistorial')->get('detallehistorial/{id}',[Administrador::class,'detallehistorial']);
+Route::name('borrarhistorial')->get('borrarhistorial/{id}',[Administrador::class,'borrarhistorial']);
+Route::name('editarhistorial')->get('editarhistorial/{id}',[Administrador::class,'editarhistorial']);
+Route::name('guardarhistorial')->put('guardarhistorial/{id}',[Administrador::class,'guardarhistorial']);
+
+//--------HISTORIAL  VISTA USUARIO-----------------
+Route::name('historialusr')->get('historialusr/',[Administrador::class,'historialusr']);
 
 //--------DETALLE USUARIO----------------
 Route::name('detalle')->get('detalle/{id}',[consultorio::class,'detalle']);

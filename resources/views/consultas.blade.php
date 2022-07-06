@@ -27,10 +27,7 @@
                   <option value="Viernes">Viernes</option>
               </select>
         </div>
-        <div class="input-group mb-3">
-              <span class="input-group-text" id="">NOMBRE</span>
-              <input type="text" class="form-control" placeholder="NOMBRE"  name="id_usuario"  id="nombreCompleto">
-        </div>
+        <input type="hidden" name="id_usuario" value="{{$id_usuario}}">
         <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1">ASUNTO</span>
               <input type="text" class="form-control"  placeholder="ASUNTO" aria-label="ASUNTO"
@@ -54,9 +51,9 @@
     <script>
 
       const $nombreCompleto = document.querySelector("#nombreCompleto");
-    const patronName = /[a-zA-Z/]+/;
-console.log($nombreCompleto);
-    $nombreCompleto.addEventListener("keydown", event => {
+      const patronName = /[a-zA-Z/]+/;
+      console.log($nombreCompleto);
+      $nombreCompleto.addEventListener("keydown", event => {
         if (patronName.test(event.key)) {
             document.getElementById('nombreCompleto').style.border = "1px solid #00cc00";
         } else {
@@ -67,7 +64,7 @@ console.log($nombreCompleto);
     });
     const $asunto = document.querySelector("#asunto");
     const patronAsunto = /[a-zA-Z/]+/;
-console.log($asunto);
+    console.log($asunto);
     $asunto.addEventListener("keydown", event => {
         if (patronAsunto.test(event.key)) {
             document.getElementById('asunto').style.border = "1px solid #00cc00";

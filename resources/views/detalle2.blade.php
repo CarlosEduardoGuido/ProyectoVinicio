@@ -20,7 +20,7 @@
         </tr> 
         <tr>
             <td colspan="2">
-                <a class="btn btn-primary" href="{{route('admin')}}">
+                <a class="btn btn-primary" href="{{route('doctores')}}">
                     <center><button class="btn btn-primary">Regresar</button></center>
                 </a><br>
             </td>
