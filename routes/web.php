@@ -8,6 +8,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\Administrador;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\PaymentController;
 
 Route::name('index')->get('/', function () {
     return view('welcome1');
@@ -133,6 +134,12 @@ Route::get('/enviar-emial', [MailController::class, 'sendEmail'])->name('enviar-
 
 ///excel///
 Route::get('/excel', 'App\Http\Controllers\Administrador@export')->name('excel');
+//----------------PAYPAL-------------------------
+Route::get('payment', 'App\Http\Controllers\PaymentController@index');
+Route::post('charge', 'App\Http\Controllers\PaymentController@charge');
+Route::get('success', 'App\Http\Controllers\PaymentController@success');
+Route::get('error', 'App\Http\Controllers\PaymentController@error');
+Route::get('/pago', [PaymentController::class, 'pago'])->name('pago.index');
 
 
 

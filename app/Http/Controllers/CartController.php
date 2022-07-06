@@ -16,7 +16,7 @@ class CartController extends Controller
     public function cart()  {
         $cartCollection = \Cart::getContent();
         //dd($cartCollection);
-        return view('cart')->withTitle('CONSULTORIO | CART')->with(['cartCollection' => $cartCollection]);;
+        return view('cart')->withTitle('CONSULTORIO | CART')->with(['cartCollection' => $cartCollection]);
     }
     public function remove(Request $request){
         \Cart::remove($request->id);
@@ -50,7 +50,7 @@ class CartController extends Controller
 
     public function clear(){
         \Cart::clear();
-        return redirect()->route('cart.index')->with('success_msg', 'Carrito vacío!');
+        return redirect()->route('cart.index');
     }
 
  

@@ -47,9 +47,11 @@
 							<li><a href="#first">Quienes Somos</a></li>
 							<li><a href="#second">Especialidades</a></li>
 							<li><a href="#cta">Agendar Cita</a></li>
+							@if(auth()->check())
 							<li><a href="#cta">Contactanos</a></li>
 							<li><a href="{{route('historialusr')}}">Historial Clinico</a></li>
 							<li><a href="{{ url('shop') }}">Tienda</a></li>
+							@endif
 						</ul>
 					</nav>
 

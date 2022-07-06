@@ -1,8 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container" style="margin-top: 10px">
-        
+
+<div class="container" style="margin-top: 10px">
+    
+       @if(session('status'))
+        <div class="alert alert-danger  alert-dismissible fade show" role="alert">{{session('status')}}</div>
+        @endif
+
         @if(session()->has('success_msg'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ session()->get('success_msg') }}
@@ -35,7 +40,7 @@
                 @if(\Cart::getTotalQuantity()>0)
                     <h4>{{ \Cart::getTotalQuantity()}} Producto(s) en el carrito</h4><br>
                 @else
-                    <h4>No Product(s) In Your Cart</h4><br>
+                    <h4>No hay productos en su carrito</h4><br>
                     <a href="{{route('shop')}}" class="btn btn-dark">Continue en la tienda</a>
                 @endif
 
@@ -49,7 +54,7 @@
                                 <b><a href="{{route('shop')}}">{{ $item->name }}</a></b><br>
                                 <b>Price: </b>${{ $item->price }}<br>
                                 <b>Sub Total: </b>${{ \Cart::get($item->id)->getPriceSum() }}<br>
-                                {{--                                <b>With Discount: </b>${{ \Cart::get($item->id)->getPriceSumWithConditions() }}--}}
+                                {{--<b>With Discount: </b>${{ \Cart::get($item->id)->getPriceSumWithConditions() }}--}}
                             </p>
                         </div>
                         <div class="col-lg-4">
@@ -80,15 +85,19 @@
                     </form>
                 @endif
             </div>
+            
             @if(count($cartCollection)>0)
                 <div class="col-lg-5">
                     <div class="card">
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><b>Total: </b>${{ \Cart::getTotal() }}</li>
+                        <form action="{{ url('charge') }}" method="post">
+                            <li class="list-group-item"><b>Total: </b>$ <input type="text" name="amount" readonly value= "{{ \Cart::getTotal() }}"/></li>
                         </ul>
                     </div>
-                    <br><a href="{{route('shop')}}" class="btn btn-dark">Continuar comprando</a>
-                    <a href="checkout" class="btn btn-success">Pagar</a>
+                    <br><a href="{{route('shop')}}" class="btn btn-dark">Continuar comprando</a>                
+                        {{ csrf_field() }}
+                        <input class="btn btn-success" type="submit" name="submit" value="Pay Now">
+                    </form>
                 </div>
             @endif
         </div>
