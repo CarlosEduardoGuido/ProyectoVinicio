@@ -17,13 +17,16 @@ class MailController extends Controller {
     public function sendEmail(Request $request){
         
         $details = [
+            'title2' => $request->get('nombre'),
+            'title3' => $request->get('email'),
             'title' => $request->get('asunto'),
             'body' => $request->get('mensaje')
         ];
 
        
         Mail::to($request->get('email'))->send(new PruebaMail($details));
-        return "Correo Electronico Enviado Exitosamente";
+        return view('welcome1');
+       //// return "Correo Electronico Enviado Exitosamente";//
        
     }
 }

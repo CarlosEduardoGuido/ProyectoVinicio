@@ -226,7 +226,15 @@
                                                                                                        <center><h2><font style="vertical-align: inherit;"> Datos del mensaje.</font></h2></center> 
                                                                                                     
                                                                                                 </p>
-                                                                                                <table class="default">
+                                                                                                 <center><table  border="1">    
+                                                                                                    <tr>
+                                                                                                        <td>   <h4><p>Nombre:</p></h4> </td>
+                                                                                                        <td> <p>{{ $details ['title2'] }}</p></td>       
+                                                                                                      </tr>
+                                                                                                     <tr>
+                                                                                                        <td>   <h4><p>Correo:</p></h4> </td>
+                                                                                                        <td> <p>{{ $details ['title3'] }}</p></td>       
+                                                                                                      </tr>
                                                                                                     <tr>
                                                                                                       <td>   <h4><p>Asunto:</p></h4> </td>
                                                                                                       <td> <p>{{ $details ['title'] }}</p></td>       
@@ -236,7 +244,7 @@
                                                                                                       <td>    <p>{{ $details ['body'] }}</p></td>
                                                                                                     </tr>
                                                                                                   
-                                                                                                  </table>
+                                                                                                  </table></center>
                                                                                             </font>
                                                                                             </strong></p>
                                                                                     </td>
