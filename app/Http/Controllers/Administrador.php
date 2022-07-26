@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\User;
 use App\Models\Citas;
 use App\Models\Doctores;
-use App\Models\User;
-use App\Models\Especialidades;
 use App\Models\Historial;
-use Illuminate\Support\Facades\DB;
 use App\Exports\CitasExport;
+use Illuminate\Http\Request;
+use App\Models\Especialidades;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Storage;
+
 
 
 class Administrador extends Controller{
@@ -65,13 +68,26 @@ class Administrador extends Controller{
           ->with(['doctores' => $doctores]);
     }
 
-    public function salvarhistorial(Citas $id , Request $request){
+    public function salvarhistorial(Citas $id , Request $request ){
+        if($request->hasFile('receta')){
+            $file = $request->file('receta');
+            //$file->move(public_path().'/archivos',$file->getClientOriginalName());
+            //$receta2=$file->getClientOriginalName();
+            $receta = $file->getClientOriginalName();
+            //$receta = $request->file('receta')->getClientOriginalName();
+            $ldate = date('Ymd_His_');
+            $receta2 = $ldate . $receta;
+            Storage::disk('local')->put($receta2, File::get($file));
+
+            /*$receta2= time() . '_' . $request->file('receta')->getClientOriginalName();
+            $request->file('receta')->storeAs('recetas',$receta2);*/
+        }else{ $receta2 = $request->receta2;}
         $al = Historial::create(array(
             'id_cita'=>$request->input('id_cita'),
             'descripcion'=>$request->input('descripcion'), 
             'prescripciones'=>$request->input('prescripciones'), 
             'observaciones'=>$request->input('observaciones'), 
-            'receta'=>$request->input('receta'),
+            'receta'=>$receta2,
             'condicion'=>$request->input('condicion'),
              ));
            return redirect()->route('admin');
@@ -115,6 +131,11 @@ class Administrador extends Controller{
         $query->condicion = $request->condicion;
         $query->save();
         return redirect()->route("detallehistorial",['id'=>$id->id]);
+    }
+
+    public function descargareceta($receta){
+        $filepath = public_path('recetas/').$receta;
+        return response()->download($filepath);
     }
 
 

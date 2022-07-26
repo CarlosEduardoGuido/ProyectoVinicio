@@ -19,7 +19,6 @@ class RegisterController extends Controller{
             'numero' => 'required',
             'email' => 'required|email',
             'password' => 'required|confirmed',
-            'g-recaptcha-response'   => 'required'
 
         ]);
 

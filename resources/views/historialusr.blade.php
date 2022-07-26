@@ -58,7 +58,7 @@
                                 <td class="table-primary">{{$historial->descripcion}}</td>
                                 <td class="table-primary">{{$historial->prescripciones}}</td>
                                 <td class="table-primary">{{$historial->observaciones}}</td>
-                                <td class="table-primary">{{$historial->receta}}</td>
+                                <td class="table-primary"><a href="{{route('descargareceta',$historial->receta)}}">{{$historial->receta}}</a></td>
                                 <td class="table-primary">{{$historial->condicion}}</td>
                             @endif
                         @endforeach        

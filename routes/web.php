@@ -29,6 +29,9 @@ Route::name('borrarhistorial')->get('borrarhistorial/{id}',[Administrador::class
 Route::name('editarhistorial')->get('editarhistorial/{id}',[Administrador::class,'editarhistorial']);
 Route::name('guardarhistorial')->put('guardarhistorial/{id}',[Administrador::class,'guardarhistorial']);
 
+//--------- DESCARGAR PDF RECETA------------------------------------------------------------------------
+Route::name('descargareceta')->get('descargareceta/{receta}',[Administrador::class,'descargareceta']);
+
 //--------HISTORIAL  VISTA USUARIO-----------------
 Route::name('historialusr')->get('historialusr/',[Administrador::class,'historialusr']);
 
