@@ -72,7 +72,6 @@
                             <label for="password_confirmation">Confirma Contraseña</label>
                         </div>
                         <br>
-                        <div  class="g-recaptcha"   style=" @error('g-recaptcha-response') border: tomato 1px solid;@enderror" data-sitekey="6LfNocoaAAAAAImpuxs1HMFwgc1oHebl0dymqDxt"></div>
                         <input type="hidden" value="Correcto" name="avisodeprivacidad">
                         <input class="form-check-input" type="checkbox" name="" id="avisoSuccess">
                         <a href="{{ route('aviso') }}"><label >HE LEIDO Y ACEPTO LOS AVISOS DE PRIVACIDAD</label></a>

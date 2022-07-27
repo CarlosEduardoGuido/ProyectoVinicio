@@ -4,7 +4,7 @@
     <center>
         <h1>Agregar Nuevo Historial</h1>
     <br>
-    <form action="{{route('salvarhistorial')}}" method="POST">
+    <form action="{{route('salvarhistorial')}}" method="POST" enctype="multipart/form-data">
         {{ csrf_field() }}
         <input name="id_cita" type="hidden" value="{{ $cita->id }}">
         <div class="input-group mb-3">
