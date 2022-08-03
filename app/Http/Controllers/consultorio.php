@@ -249,6 +249,9 @@ public function detalle3($id){
 //----------------SALVAR2/DOCTORE-------------
 
 public function salvar3(Especialidades $id, Request $request){
+  $request -> validate([
+    'especialidad'=>'required',
+        ]);
   $query = Especialidades::find($id->id);
   $query->especialidad = $request->especialidad;
   
@@ -267,6 +270,9 @@ public function altaespecialidad (){
 }
 
 public function salvarespecialidad(Request $request){
+  $request -> validate([
+    'especialidad'=>'required',
+        ]);
   $al = Especialidades::create(array(
     'especialidad'=>$request->input('especialidad'),
      ));

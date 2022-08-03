@@ -9,7 +9,7 @@
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="img/ rel="icon">
+    <link href="img/ rel="icon>
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -63,6 +63,7 @@
                     <a href="{{ route('doctores') }}" class="nav-item nav-link"><i class="bi bi-person-circle me-2"></i>Doctores</a>
                     <a href="{{ route('especialidades') }}"  class="nav-item nav-link"><i class="fa-solid fa-user-doctor me-2"></i>Especialidades</a>
                     <a href="{{ route('historial') }}" class="nav-item nav-link"><i class="fa-solid fa-book-medical me-2"></i>Historial</a>
+                    <a href="{{ route('productos') }}" class="nav-item nav-link"><i class="fa-solid fa-shop"></i>Productos</a>
                 </div>
             </nav>
         </div>

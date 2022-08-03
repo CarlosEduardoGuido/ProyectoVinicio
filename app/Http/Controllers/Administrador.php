@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Storage;
-
+use App\Models\Product;
 
 
 class Administrador extends Controller{
@@ -146,6 +146,70 @@ class Administrador extends Controller{
         $filepath = public_path('recetas/').$receta;
         return response()->download($filepath);
     }
+    public function productos () {
+        $productos = Product::all();
+        return view ('productos')-> with(['productos' => $productos]);
+    }
+    public function detalleP($id){
+        $producto = Product::find($id);
+        return view('detalleP')
+            ->with(['producto'=>$producto]);
+    }
+    public function editarP(Product $id){
+       return view("editarP")
+       ->with(['producto'=>$id]);
+     }
+     public function salvarP(Product $id, Request $request){
+        $request -> validate([
+            'name'=>'required',
+            'slug'=>'required',
+            'price'=>'required',
+            'image_path'=>'required'
+            ]);
+        $query = Product::find($id->id);
+        if($request->hasfile('image_path')){
+            $file = $request->file('image_path');
+            $destinationPath =('images');
+            $filename =time().'-'.$file->getClientOriginalName();
+            $uploadSuccess= $request->file('image_path')->move($destinationPath,$filename);
+            $query->image_path= $filename;
+        }
+        $query->name = $request->name;
+        $query->slug = $request->slug;
+        $query->price = $request->price;
+ 
+      $query -> save();
+      return redirect()->route("detalleP",['id'=>$id->id]);
+    }
+    public function borrarP(Product $id){
+        $id->delete();
+        return redirect()->route('productos');
+    }   
+    public function altaproductos (){
+        return view('formularioP');
+    }
+   
+    public function salvarProductos(Request $request){
+        $request -> validate([
+            'name'=>'required',
+            'slug'=>'required',
+            'price'=>'required',
+            'image_path'=>'required'
+            ]);
+        if($request->hasfile('image_path')){
+            $image_path = $request->file('image_path');
+            $destinationPath =('images');
+            $filename =time().'-'.$image_path->getClientOriginalName();
+            $uploadSuccess= $request->file('image_path')->move($destinationPath,$filename);
+        }
 
+          $al = Product::create(array(
+            'image_path' => $filename,
+            'name' => $request->input('name'),
+            'slug'=>$request->input('slug'),
+            'price'=> $request->input('price'),
+       ));
+                return redirect()->route('productos');
+       }
 
 }

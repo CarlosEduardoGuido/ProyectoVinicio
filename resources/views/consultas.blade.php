@@ -19,13 +19,7 @@
         </div>
         <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1">FECHA DE LA CITA</span>
-              <select name="cita" id="" class="form-control">
-                  <option value="Lunes">Lunes</option>
-                  <option value="Martes">Martes</option>
-                  <option value="Miercoles">Miercoles</option>
-                  <option value="Jueves">Jueves</option>
-                  <option value="Viernes">Viernes</option>
-              </select>
+              <input type="date" id="" class="form-control" name="cita" value=""  min="2022-01-01" max="2023-12-31">
         </div>
         <input type="hidden" name="id_usuario" value="{{$id_usuario}}">
         <div class="input-group mb-3">
