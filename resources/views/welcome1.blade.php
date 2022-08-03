@@ -117,7 +117,9 @@
 
 <header>
 	
-	<form action="{{ route('enviar-emial') }}" method="GET">
+	<!-- <form action="{{ route('enviar-emial') }}" method="GET"> -->
+		<form name="form" onsubmit="return checar()">
+
 		{{ csrf_field() }}
 		<table class="default">
 		<h2>Contactanos</h2>
@@ -171,5 +173,34 @@
 </section>
 </div>	
 </table>
+<script type="text/javascript"> function checar()
+	{
+	with (document.forms['form'])
+	{
+	if(nombre.value=="")
+	{
+	alert("Campo nombre esta vacio");
+	return false;
+	}
+	else if(email.value=="")
+	{
+	alert("Campo email esta vacio");
+	return false;
+	}
+	else if(asunto.value=="")
+	{
+	alert("Campo asunto esta vacio");
+	return false;
+	}
+	else if(mensaje.value=="")
+	{
+	alert("Campo mensaje esta vacio");
+	return false;
+	}
+	return true
+	}
+	}</script>
+
+
 </form>
 @endsection
