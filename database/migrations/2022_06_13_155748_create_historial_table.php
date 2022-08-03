@@ -17,10 +17,10 @@ class CreateHistorialTable extends Migration
             $table->id();
             $table->integer('id_cita');
             $table->string('descripcion',255);
-            $table->string('prescripciones',30);
+            $table->string('prescripciones',255);
             $table->string('observaciones',255);
             $table->string('receta',255);
-            $table->string('condicion',30);
+            $table->string('condicion',255);
             $table->timestamps();
         });
     }

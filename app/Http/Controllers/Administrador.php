@@ -69,6 +69,15 @@ class Administrador extends Controller{
     }
 
     public function salvarhistorial(Citas $id , Request $request ){
+
+        $request->validate([
+            'descripcion' => 'required|min:10|max:255',
+            'prescripciones' => 'required|min:10|max:255',
+            'observaciones' => 'required|min:10|max:255',
+            'receta' => 'required|mimes:pdf',
+            'condicion' => 'required|min:10|max:255',
+            ]);
+
         if($request->hasFile('receta')){
             $file = $request->file('receta');
             //$file->move(public_path().'/archivos',$file->getClientOriginalName());

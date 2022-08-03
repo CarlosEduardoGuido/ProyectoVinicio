@@ -59,6 +59,14 @@ class consultorio extends Controller
     //-----------GUARDAR/USUARIO--------
 
     public function salvarusuario(Request $request){
+      
+        $request->validate([
+          'name' => 'required|min:10|max:50',
+          'numero' => 'required|numeric',
+          'direccion' => 'required|min:8|max:80',
+          'email' => 'required|string|email|max:255',
+          'password' => 'required|min:10|max:30',
+          ]);
         $al = User::create(array(
           'name'=>$request->input('name'), 
           'numero'=>$request->input('numero'), 
