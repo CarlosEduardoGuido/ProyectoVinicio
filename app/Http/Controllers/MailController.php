@@ -15,6 +15,12 @@ class MailController extends Controller {
     }
     
     public function sendEmail(Request $request){
+        $request -> validate([
+        'nombre'=>'required',
+        'email'=>'required',
+        'asunto'=>'required',
+        'mensaje'=>'required'
+        ]);
         
         $details = [
             'title2' => $request->get('nombre'),
@@ -22,10 +28,14 @@ class MailController extends Controller {
             'title' => $request->get('asunto'),
             'body' => $request->get('mensaje')
         ];
+        
 
        
         Mail::to($request->get('email'))->send(new PruebaMail($details));
-        return view('welcome1');
+        return redirect()->to('login/')->with('estatus', 'Se envió el correo corectamente');
+
+
+        //return  view('welcome1');
        //// return "Correo Electronico Enviado Exitosamente";//
        
     }

@@ -48,11 +48,19 @@
                         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                         <div class="form-floating mb-3">
                             <input type="email" class="form-control" id="email" name="email" placeholder="Correo" id="correo">
+                            @error('email')
+                            <p class="error-message">Correo esta vacio </p>
+            @enderror
                             <label for="email">Correo</label>
+                 
                         </div>
                         <div class="form-floating mb-4">
                             <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña">
+                            @error('password')
+                            <p class="error-message">Campo de Contraseña  Esta Vacio </p>
+            @enderror
                             <label for="password">Contraseña</label>
+                           
                         </div>
                         <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Enviar</button>
                         <p class="text-center mb-0">No tienes cuenta? <a href="{{ route('register.create') }}">Registrate</a></p>

@@ -1,6 +1,12 @@
 @extends('plantilla.plantilla')
 @section('contenido')
 <section id="intro" class="main">
+	@if(Session::has('estatus'))
+<div class="alert alert-success alert-dismissible" role="alert">
+    <p class="text-success">{{Session::get('estatus')}}</p>
+</div>
+@endif
+
 								<div class="spotlight">
 									<div class="content">
                                         <center>
@@ -110,6 +116,7 @@
 								</header>
 
 <header>
+	
 	<form action="{{ route('enviar-emial') }}" method="GET">
 		{{ csrf_field() }}
 		<table class="default">
@@ -119,24 +126,39 @@
 				<th>Nombre:</th>
 				<td>
 					<input type="text" name="nombre">
+					@error('nombre')
+                <p class="error-message">Este Campo Esta Vacio </p>
+@enderror
 				</td>
 			</tr>
 			<tr>
 				<th>E-mail:</th>
 				<td>
 					<input type="text" name="email">
+					@error('email')
+                <p class="error-message">Este Campo Esta Vacio </p>
+@enderror
+
 				</td>
 			</tr>
 			<tr>
 				<th>Asunto:</th>
 				<td>
 					<input type="text" name="asunto">
+					@error('asunto')
+                <p class="error-message">Este Campo Esta Vacio </p>
+@enderror
+
 				</td>
 			</tr>
 			<tr>
 				<th>Escribe el mensaje:</th>
 				<td>
 					<textarea name="mensaje"></textarea>
+					@error('mensaje')
+                <p class="error-message">Este Campo Esta Vacio </p>
+@enderror
+
 				</td>
 			</tr>
 			<tr>
@@ -146,10 +168,8 @@
 			</tr>
 	
 </header>
-							</section>
-					</div>	</table>
-					
-		</form>
-
-
+</section>
+</div>	
+</table>
+</form>
 @endsection
