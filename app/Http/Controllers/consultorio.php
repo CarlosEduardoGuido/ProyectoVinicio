@@ -234,6 +234,12 @@ public function borrar2(Doctores $id){
 //--------------AGENDAR CITAS---------------
 
 public function agendarc(Request $request ){
+   $request -> validate([
+    'hora_cita'=>'required',
+    'cita'=>'required',
+    'id_doctor'=>'required',
+    'asunto'=>'required',
+    ]);
   $existe = Citas::where('hora_cita',$request->input('hora_cita'))
   ->where('cita',$request->input('cita'))
   ->where('id_doctor',$request->input('id_doctor'))->first();

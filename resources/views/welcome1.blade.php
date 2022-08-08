@@ -127,40 +127,37 @@
 			<tr>
 				<th>Nombre:</th>
 				<td>
-					<input type="text" name="nombre">
+					<input type="text" name="nombre" id="nombre"  required>
 					@error('nombre')
-                <p class="error-message">Este Campo Esta Vacio </p>
-@enderror
+        <small>*{{$message}}</small>
+         @enderror
 				</td>
 			</tr>
 			<tr>
 				<th>E-mail:</th>
 				<td>
-					<input type="text" name="email">
+					<input type="email" name="email" id="email" required >
 					@error('email')
-                <p class="error-message">Este Campo Esta Vacio </p>
-@enderror
-
+        <small>*{{$message}}</small>
+         @enderror
 				</td>
 			</tr>
 			<tr>
 				<th>Asunto:</th>
 				<td>
-					<input type="text" name="asunto">
+					<input type="text" name="asunto" id="asunto" required >
 					@error('asunto')
-                <p class="error-message">Este Campo Esta Vacio </p>
-@enderror
-
+        <small>*{{$message}}</small>
+         @enderror
 				</td>
 			</tr>
 			<tr>
 				<th>Escribe el mensaje:</th>
 				<td>
-					<textarea name="mensaje"></textarea>
+					<textarea name="mensaje" id="mensaje" required></textarea>
 					@error('mensaje')
-                <p class="error-message">Este Campo Esta Vacio </p>
-@enderror
-
+        <small>*{{$message}}</small>
+         @enderror
 				</td>
 			</tr>
 			<tr>
@@ -172,35 +169,55 @@
 </header>
 </section>
 </div>	
-</table>
-<script type="text/javascript"> function checar()
-	{
-	with (document.forms['form'])
-	{
-	if(nombre.value=="")
-	{
-	alert("Campo nombre esta vacio");
-	return false;
-	}
-	else if(email.value=="")
-	{
-	alert("Campo email esta vacio");
-	return false;
-	}
-	else if(asunto.value=="")
-	{
-	alert("Campo asunto esta vacio");
-	return false;
-	}
-	else if(mensaje.value=="")
-	{
-	alert("Campo mensaje esta vacio");
-	return false;
-	}
-	return true
-	}
-	}</script>
-
-
+</table><script>
+      const $nombre = document.querySelector("#nombre");
+    const patronName = /[a-zA-Z/]+/;
+console.log($nombre);
+    $nombre.addEventListener("keydown", event => {
+        if (patronName.test(event.key)) {
+            document.getElementById('nombre').style.border = "1px solid #00cc00";
+        } else {
+            if (event.keyCode == 8 || event.keyCode == 32) {} else {
+                event.preventDefault();
+            }
+        }
+    });
+	const $email = document.querySelector("#email");
+    const patronemail = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/;
+console.log($email);
+    $email.addEventListener("keydown", event => {
+        if (patronemail.test(event.key)) {
+            document.getElementById('email').style.border = "1px solid #00cc00";
+        } else {
+            if (event.keyCode == 8 || event.keyCode == 32) {} else {
+                event.preventDefault();
+            }
+        }
+    });
+	const $asunto = document.querySelector("#asunto");
+    const patronasunto = /[a-zA-Z/]+/;
+console.log($asunto);
+    $asunto.addEventListener("keydown", event => {
+        if (patronasunto.test(event.key)) {
+            document.getElementById('asunto').style.border = "1px solid #00cc00";
+        } else {
+            if (event.keyCode == 8 || event.keyCode == 32) {} else {
+                event.preventDefault();
+            }
+        }
+    });
+	const $mensaje = document.querySelector("#mensaje");
+    const patronmensaje = /[a-zA-Z/]+/;
+console.log($mensaje);
+    $mensaje.addEventListener("keydown", event => {
+        if (patronmensaje.test(event.key)) {
+            document.getElementById('mensaje').style.border = "1px solid #00cc00";
+        } else {
+            if (event.keyCode == 8 || event.keyCode == 32) {} else {
+                event.preventDefault();
+            }
+        }
+    });
+</script>
 </form>
 @endsection

@@ -17,16 +17,25 @@
                   <option value="17:00">17:00</option>
               </select>
         </div>
+        @error('hora_cita')
+        <small>*{{$message}}</small>
+         @enderror
         <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1">FECHA DE LA CITA</span>
               <input type="date" id="" class="form-control" name="cita" value=""  min="2022-01-01" max="2023-12-31">
         </div>
+        @error('cita')
+        <small>*{{$message}}</small>
+         @enderror
         <input type="hidden" name="id_usuario" value="{{$id_usuario}}">
         <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1">ASUNTO</span>
               <input type="text" class="form-control"  placeholder="ASUNTO" aria-label="ASUNTO"
               aria-describedby="basic-addon1"name="asunto" id="asunto">
         </div>
+        @error('asunto')
+        <small>*{{$message}}</small>
+         @enderror
         <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1">DOCTOR</span>
               <select name="id_doctor" id="" class="form-control">
@@ -36,6 +45,9 @@
                   @endforeach
               </select>
         </div>
+        @error('id_doctor')
+        <small>*{{$message}}</small>
+         @enderror
         
 		<div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -44,18 +56,7 @@
     </form>
     <script>
 
-      const $nombreCompleto = document.querySelector("#nombreCompleto");
-      const patronName = /[a-zA-Z/]+/;
-      console.log($nombreCompleto);
-      $nombreCompleto.addEventListener("keydown", event => {
-        if (patronName.test(event.key)) {
-            document.getElementById('nombreCompleto').style.border = "1px solid #00cc00";
-        } else {
-            if (event.keyCode == 8 || event.keyCode == 32) {} else {
-                event.preventDefault();
-            }
-        }
-    });
+    
     const $asunto = document.querySelector("#asunto");
     const patronAsunto = /[a-zA-Z/]+/;
     console.log($asunto);
