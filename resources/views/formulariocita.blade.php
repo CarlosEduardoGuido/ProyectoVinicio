@@ -14,12 +14,12 @@
         <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1">HORA DE LA CITA</span>
               <input type="time" class="form-control" placeholder="HORA DE LA CITA" aria-label="HORA DE LA CITA"
-              aria-describedby="basic-addon1" name="hora_cita" required minlength="6" maxlength="6">
+              aria-describedby="basic-addon1" name="hora_cita"  minlength="6" maxlength="6">
         </div>
         <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1">CITA</span>
               <input type="date" class="form-control" placeholder="CITA" aria-label="CITA"
-              aria-describedby="basic-addon1" name="cita" required minlength="6" maxlength="6">
+              aria-describedby="basic-addon1" name="cita"  minlength="6" maxlength="6">
         </div>
         <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1">ASUNTO</span>

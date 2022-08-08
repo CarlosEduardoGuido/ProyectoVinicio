@@ -11,18 +11,27 @@
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1">HORA DE LA CITA</span>
                                 <input type="text" class="form-control" placeholder="HORA DE LA CITA" aria-label="HORA DE LA CITA"
-                                    aria-describedby="basic-addon1" name=" hora_cita" required minlength="6" maxlength="6" value="{{ $cita->hora_cita }}">
+                                    aria-describedby="basic-addon1" name=" hora_cita" id=" hora_cita"   value="{{ $cita->hora_cita }}">
                             </div>
+                            @error('hora_cita')
+                        <small>*{{$message}}</small>
+                        @enderror
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1">CITA</span>
                                 <input type="text" class="form-control" placeholder="CITA" aria-label="CITA"
-                                    aria-describedby="basic-addon1" name="cita" required minlength="6" maxlength="6" value="{{ $cita->cita }}">
+                                    aria-describedby="basic-addon1" name="cita" id="cita" value="{{ $cita->cita }}">
                             </div>
+                            @error('cita')
+                        <small>*{{$message}}</small>
+                        @enderror
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1">ASUNTO</span>
                                 <input type="text" class="form-control" placeholder="ASUNTO" aria-label="ASUNTO"
-                                    aria-describedby="basic-addon1" name="asunto" required minlength="8" maxlength="40" value="{{ $cita->asunto }}">
+                                    aria-describedby="basic-addon1" name="asunto"  id="asunto"  value="{{ $cita->asunto }}">
                             </div>
+                            @error('asunto')
+                        <small>*{{$message}}</small>
+                        @enderror
                             <div class="input-group mb-3">
                                 <select class="form-select mb-3" aria-label="Especialidad" name="id_usuario" id="id_usuario">
                                     <option value="0">SELECCIONA UN USUARIO</option>
@@ -31,6 +40,9 @@
                                     @endforeach
                                 </select>
                             </div>
+                            @error('id_usuario')
+                        <small>*{{$message}}</small>
+                        @enderror
                             <div class="input-group mb-3">
                                 <select class="form-select mb-3" aria-label="Especialidad" name="id_doctor" id="id_doctor">
                                     <option value="0">SELECCIONA UN DOCTOR</option>
@@ -39,15 +51,21 @@
                                     @endforeach
                                 </select>
                             </div>
+                            @error('id_doctor')
+                        <small>*{{$message}}</small>
+                        @enderror
+                        <br>
 
                                 <button type="submit" class="btn btn-primary">GUARDAR</button>
                             </form>
+                            <br>
+                    <a href="{{route('citas')}}">
+                                    <button class="btn btn-primary">Regresar</button>
+                </a><br>
                         </div>
                     </div>
-    <a href="{{route('admin')}}">
-                    <button class="btn btn-primary">Regresar</button>
-                </a><br>
-    </center>
+                   
+
 </body>
 </html>
 

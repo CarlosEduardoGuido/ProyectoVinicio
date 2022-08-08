@@ -143,7 +143,14 @@ Route::post('charge', 'App\Http\Controllers\PaymentController@charge');
 Route::get('success', 'App\Http\Controllers\PaymentController@success');
 Route::get('error', 'App\Http\Controllers\PaymentController@error');
 Route::get('/pago', [PaymentController::class, 'pago'])->name('pago.index');
-
+//--------------------Productos--------------------
+Route::name('productos')->get('productos/',[Administrador::class,'productos']);
+Route::name('detalleP')->get('detalleP/{id}',[Administrador::class,'detalleP']);
+Route::name('editarP')->get('editarP/{id}',[Administrador::class,'editarP']);
+Route::name('salvarP')->put('salvarP/{id}',[Administrador::class,'salvarP']);
+Route::name('borrarP')->get('borrarP/{id}',[Administrador::class,'borrarP']);
+Route::name('salvarProductos')->post('/salvarProductos',[Administrador::class,'salvarProductos']);
+Route::name('altaproductos')->get('/altaproductos',[Administrador::class,'altaproductos']);
 
 
 

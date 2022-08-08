@@ -164,8 +164,7 @@ class Administrador extends Controller{
             'name'=>'required',
             'slug'=>'required',
             'price'=>'required',
-            'image_path'=>'required'
-            ]);
+                  ]);
         $query = Product::find($id->id);
         if($request->hasfile('image_path')){
             $file = $request->file('image_path');

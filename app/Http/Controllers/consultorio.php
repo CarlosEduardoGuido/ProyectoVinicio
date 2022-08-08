@@ -48,8 +48,13 @@ class consultorio extends Controller
     
     //---------SALVAR/USUARIO-------------
     public function salvar(User $id, Request $request){
+      $request -> validate([
+        'name'=>'required',
+        'numero'=>'required',
+        'direccion'=>'required',
+        ]);
         $query = User::find($id->id);
-        $query->nombre = $request->nombre;
+        $query->name = $request->name;
         $query->numero = $request->numero;
         $query->direccion = $request->direccion;
       $query -> save();
@@ -134,6 +139,13 @@ class consultorio extends Controller
     
     //---------SALVAR1/CITA-------------
     public function salvar1(Citas $id, Request $request){
+      $request -> validate([
+        'hora_cita'=>'required',
+        'cita'=>'required',
+        'nombre'=>'required',
+        'asunto'=>'required',
+        'doctor'=>'required',
+        ]);      
         $query = Citas::find($id->id);
         $query->hora_cita = $request->hora_cita;
         $query->cita = $request->cita;
@@ -162,6 +174,11 @@ class consultorio extends Controller
     //------------GUARDAR/DOCTORES-------------
 
     public function salvardoctores(Request $request){
+      $request -> validate([
+        'nombre'=>'required',
+        'numero'=>'required',
+        'especialidad'=>'required',
+        ]);
       $al = Doctores::create(array(
         'nombre'=>$request->input('nombre'), 
         'numero'=>$request->input('numero'), 
@@ -170,7 +187,7 @@ class consultorio extends Controller
        return redirect()->route('admin');
      }   
   
-  public function altadoctores (){
+  public function altadoctores (){    
       $especialidades=Especialidades::all();
       return view('formulariodoctores')
         -> with(['especialidades' => $especialidades]) ;
@@ -195,6 +212,11 @@ class consultorio extends Controller
 //----------------SALVAR2/DOCTORE-------------
 
 public function salvar2(Doctores $id, Request $request){
+  $request -> validate([
+    'nombre'=>'required',
+    'numero'=>'required',
+    'especialidad'=>'required',
+    ]);
     $query = Doctores::find($id->id);
     $query->nombre = $request->nombre;
     $query->numero = $request->numero;

@@ -2,7 +2,9 @@
 
 @section('contenido')
 <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
-    <center>
+  
+    <div class="col-sm-12 col-xl-12">
+                        <div class="bg-light rounded h-100 p-4">
         <h1>Agregar un Nuevo Paciente</h1>
     <br>
     <form action="{{route('salvarusuario')}}" method="POST">
@@ -48,7 +50,7 @@
         @enderror
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">CONTRASEÑA</span>
-            <input type="text" class="form-control" placeholder="CONTRASEÑA" aria-label="CONTRASEÑA"
+            <input type="email" class="form-control" placeholder="CONTRASEÑA" aria-label="CONTRASEÑA"
             aria-describedby="basic-addon1" name="password" id="pass" value="{{ old('password') }}">
         </div>
         <br>
@@ -59,8 +61,11 @@
         <input type="hidden" value="Correcto" name="avisodeprivacidad">
          <input class="btn btn-primary" type="submit" value="Agregar">
     </form>
+    <br>
+    <a href="{{route('usuarios')}}">
+                    <button class="btn btn-primary">Regresar</button>
+                </a>
 
-    </center>
 </body>
 <script>
     const $nombreu = document.querySelector("#nombreu");

@@ -15,11 +15,17 @@
               <input type="text" class="form-control" placeholder="NOMBRE" aria-label="NOMBRE"
               aria-describedby="basic-addon1" name="nombre" id="nombre" >
         </div>
+        @error('nombre')
+        <small>*{{$message}}</small>
+         @enderror
         <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1">NUMERO</span>
               <input type="text" class="form-control" placeholder="NUMERO" aria-label="NUMERO"
               aria-describedby="basic-addon1" name="numero" id="numero">
         </div>
+        @error('numero')
+        <small>*{{$message}}</small>
+         @enderror
         <div class="input-group mb-3">
             <select class="form-select mb-3" aria-label="Especialidad" name="id_especialidad" id="id_especialidad">
                 <option value="0">SELECCIONA UNA ESPECIALIDAD</option>
@@ -28,8 +34,16 @@
                 @endforeach
             </select>
         </div>
+        @error('especialidad')
+        <small>*{{$message}}</small>
+         @enderror
+         <br>
          <input class="btn btn-primary" type="submit" value="Agregar Doctor">
     </form>
+    <br>
+    <a href="{{route('doctores')}}">
+     <button class="btn btn-primary">Regresar</button>
+    </a><br>
     </center>
 </body>
 <script>
