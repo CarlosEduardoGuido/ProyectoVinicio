@@ -131,6 +131,13 @@ class Administrador extends Controller{
     }
     
     public function guardarhistorial(Historial $id, Request $request){
+        $request->validate([
+            'descripcion' => 'required|min:10|max:255',
+            'prescripciones' => 'required|min:10|max:255',
+            'observaciones' => 'required|min:10|max:255',
+            'receta' => 'required|mimes:pdf',
+            'condicion' => 'required|min:10|max:255',
+            ]);
         $query = Historial::find($id->id);
         $query->id_cita = $request->id_cita;
         $query->descripcion = $request->descripcion;

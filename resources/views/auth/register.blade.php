@@ -51,26 +51,52 @@
                             <input type="text" class="form-control" id="name" name="name" placeholder="Nombre">
                             <label for="name">Nombre</label>
                         </div>
+                        <p id="span1"></p>
+                        <br>
+                        @error('name')
+                            <small>*{{ $message }}</small>    
+                        @enderror
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="numero" name="numero" placeholder="Numero">
                             <label for="numero">Numero</label>
                         </div>
+                        <p id="span2"></p>
+                        <br>
+                        @error('numero')
+                            <small>*{{ $message }}</small>    
+                        @enderror
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Direccion">
                             <label for="direccion">Direccion</label>
                         </div>
+                        <p id="span3"></p>
+                        <br>
+                        @error('direccion')
+                            <small>*{{ $message }}</small>    
+                        @enderror
                         <div class="form-floating mb-3">
                             <input type="email" class="form-control" id="email" name="email" placeholder="Correo">
                             <label for="email">Correo</label>
                         </div>
+                        <p id="span4"></p>
+                        <br>
+                        @error('email')
+                            <small>*{{ $message }}</small>    
+                        @enderror
                         <div class="form-floating mb-4">
                             <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña">
                             <label for="password">Contraseña</label>
                         </div>
+                        @error('password')
+                            <small>*{{ $message }}</small>    
+                        @enderror
                         <div class="form-floating mb-4">
                             <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Confirma Contraseña">
                             <label for="password_confirmation">Confirma Contraseña</label>
                         </div>
+                        @error('password_confirmation')
+                            <small>*{{ $message }}</small>    
+                        @enderror
                         <br>
                         <input type="hidden" value="Correcto" name="avisodeprivacidad">
                         <input class="form-check-input" type="checkbox" name="" id="avisoSuccess">
@@ -112,5 +138,61 @@
 });
     </script>
 </body>
+<script>
+    const $name = document.querySelector("#name");
+    const $numero = document.querySelector("#numero");
+    const $direccion = document.querySelector("#direccion");
+    const $email = document.querySelector("#email");
+    const patronletras = /[a-zA-Z/]+/;
+    const patronnum = /[0-9]+/;
+    const patronpre = /[a-zA-Z0-9]+/;
+    const patronemail = /[a-zA-Z0-9@.-_]/;
 
+    $name.addEventListener("keydown", event => {
+            if (patronletras.test(event.key)) {
+                document.getElementById('name').style.border = "1px solid #00cc00";
+            } else {
+                if (event.keyCode == 8 || event.keyCode == 32) {} else {
+                    document.getElementById('name').style.border = "1px solid #ff0000 ";
+                    event.preventDefault();
+                    document.getElementById('span1').innerHTML='Solo se admiten letras ';
+                }
+            }
+        });
+
+    $numero.addEventListener("keydown", event => {
+            if (patronnum.test(event.key)) {
+                document.getElementById('numero').style.border = "1px solid #00cc00";
+            } else {
+                if (event.keyCode == 8 || event.keyCode == 32) {} else {
+                    document.getElementById('numero').style.border = "1px solid #ff0000 ";
+                    event.preventDefault();
+                    document.getElementById('span2').innerHTML='Solo se admiten numeros';
+                }
+            }
+        });
+    $direccion.addEventListener("keydown", event => {
+            if (patronpre.test(event.key)) {
+                document.getElementById('direccion').style.border = "1px solid #00cc00";
+            } else {
+                if (event.keyCode == 8 || event.keyCode == 32) {} else {
+                    document.getElementById('direccion').style.border = "1px solid #ff0000 ";
+                    event.preventDefault();
+                    document.getElementById('span3').innerHTML='Solo se admiten letras';
+                }
+            }
+        });
+    $email.addEventListener("keydown", event => {
+            if (patronemail.test(event.key)) {
+                document.getElementById('email').style.border = "1px solid #00cc00";
+            } else {
+                if (event.keyCode == 8 || event.keyCode == 32) {} else {
+                    document.getElementById('email').style.border = "1px solid #ff0000 ";
+                    event.preventDefault();
+                    document.getElementById('span4').innerHTML='Solo se admiten letras y numeros';
+                }
+            }
+        });
+
+</script>
 </html>
