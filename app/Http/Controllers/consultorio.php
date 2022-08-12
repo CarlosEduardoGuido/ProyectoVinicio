@@ -52,6 +52,8 @@ class consultorio extends Controller
         'name'=>'required',
         'numero'=>'required',
         'direccion'=>'required',
+        'id_usuario' => 'required',
+        'id_doctor' => 'required',
         ]);
         $query = User::find($id->id);
         $query->name = $request->name;

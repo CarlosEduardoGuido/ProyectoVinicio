@@ -50,7 +50,7 @@
                             <input type="email" class="form-control" id="email" name="email" placeholder="Correo" id="correo">
                             @error('email')
                             <p class="error-message">Correo esta vacio </p>
-            @enderror
+                            @enderror
                             <label for="email">Correo</label>
                  
                         </div>
@@ -58,7 +58,7 @@
                             <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña">
                             @error('password')
                             <p class="error-message">Campo de Contraseña  Esta Vacio </p>
-            @enderror
+                             @enderror
                             <label for="password">Contraseña</label>
                            
                         </div>

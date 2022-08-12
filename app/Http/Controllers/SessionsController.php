@@ -11,8 +11,11 @@ class SessionsController extends Controller{
         return view('auth.login');
     }
 
-    public function store(){
-
+    public function store(Request $request){
+        $request -> validate([
+            'email'=>'required',
+            'password'=>'required',
+            ]);
         if(auth()->attempt(request(['email','password'])) == false){
             return back()->withErrors([
                 'message' => 'El correo o la contraseña es incorrecta, por favor intenta de nuevo'

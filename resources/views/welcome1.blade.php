@@ -117,7 +117,7 @@
 
 <header>
 	
-	<!-- <form action="{{ route('enviar-emial') }}" method="GET"> -->
+	<form action="{{ route('enviar-emial') }}" method="GET"> 
 		<form name="form" onsubmit="return checar()">
 
 		{{ csrf_field() }}
