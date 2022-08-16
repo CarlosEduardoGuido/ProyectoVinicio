@@ -184,16 +184,6 @@ console.log($nombre);
     });
 	const $email = document.querySelector("#email");
     const patronemail = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/;
-console.log($email);
-    $email.addEventListener("keydown", event => {
-        if (patronemail.test(event.key)) {
-            document.getElementById('email').style.border = "1px solid #00cc00";
-        } else {
-            if (event.keyCode == 8 || event.keyCode == 32) {} else {
-                event.preventDefault();
-            }
-        }
-    });
 	const $asunto = document.querySelector("#asunto");
     const patronasunto = /[a-zA-Z/]+/;
 console.log($asunto);

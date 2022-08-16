@@ -21,6 +21,6 @@ class AdminAuth
             return $next($request);
             }
         }
-        return view('welcome1');
+        return redirect()->route('index');
     }
 }
