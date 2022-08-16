@@ -9,6 +9,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\Administrador;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ProductosController;
 
 Route::name('index')->get('/', function () {
     return view('welcome1');
@@ -119,7 +120,14 @@ Route::get('/logout', [SessionsController::class, 'destroy'])->middleware('auth'
 //---------AVISO DE PRIVACIDAD--------------
 Route::name('aviso')->get('aviso/',[RegisterController::class,'aviso']);
 
-
+//---------------API BONI----------------------------------------
+Route::name('productos2')->get('/productos2',[ProductosController::class,'index']);
+//Doctores
+Route::name('doctores2')->get('/doctores2',[ProductosController::class,'index2']);
+//Especialidades
+Route::name('especialidades2')->get('especialidades2',[ProductosController::class,'index3']);
+//Inicio
+Route::name('inicio2')->get('/inicio2',[ProductosController::class,'index4']);
 
 
 
